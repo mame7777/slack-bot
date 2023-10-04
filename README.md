@@ -1,2 +1,2 @@
 # slack-bot
-Get all message and post.
+Get all messages and post.
