@@ -32,6 +32,24 @@ def post_message(message, say):
         text=f"`#{channel_name}`\n {message['text']}"
     )
 
+# mention
+@app.event("app_mention")
+def mention(body, say):
+    text = body["event"]["text"]
+    
+    # if include "reload" in mention
+    if "reload" in text:
+        say(
+            channel = POST_CHANNEL_ID,
+            username = "Slack Bot (reload)",
+            text=f"chanelとuserの情報を更新するよ！"
+        )
+        init()
+        say(
+            channel = POST_CHANNEL_ID,
+            username = "Slack Bot (reload)",
+            text=f"更新が終わったよ！"
+        )
 
 @app.event('message')
 def handle_message_events(body, logger):
