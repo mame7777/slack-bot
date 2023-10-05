@@ -12,7 +12,7 @@ SLACK_APP_TOCKEN = os.environ['SLACK_APP_TOKEN']
 
 app = App(token=SLACK_BOT_TOKEN)
 
-POST_CHANNEL_NAME = "99_bot_try"
+POST_CHANNEL_NAME = "99_everything"
 POST_CHANNEL_ID = ""
 CHANNEL_DATA = dict()
 USER_DATA = dict()
@@ -42,7 +42,7 @@ def init():
     print("initializing...")
     
     # get channel data
-    url = "https://slack.com/api/conversations.list"
+    url = "https://slack.com/api/conversations.list?limit=999"
     headres = {"Authorization": "Bearer " + SLACK_BOT_TOKEN}
     response = requests.get(url, headers=headres)
     response_json = response.json()
