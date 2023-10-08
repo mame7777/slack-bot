@@ -37,8 +37,8 @@ def post_message(message, say):
                 mention_user_name = USER_DATA[mention_user_id]["name"]
             except KeyError:
                 mention_user_name = "unknown user"
-            message_text = message_text.replace(re_result, "`@" + mention_user_name + "` ")
-    message_text = message_text.replace("!channel", "`@channel`")
+            message_text = message_text.replace(re_result, " `@" + mention_user_name + "` ")
+    message_text = message_text.replace("<!channel>", " `@channel` ")
     
     # get posted channel name
     try:
